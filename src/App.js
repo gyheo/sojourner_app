@@ -1,8 +1,13 @@
 import React from 'react';
 import Traveler from './traveler';
 
-function Jobs({ calling }) {
-  return <h1>I am a {calling}</h1>;
+function Interest({ name, picture }) {
+  return (
+    <div>
+      <h1>I'm interested in {name}</h1>
+      <img src={picture}/>
+    </div>
+  );
 }
 
 function Food({ name, picture }) {
@@ -13,6 +18,29 @@ function Food({ name, picture }) {
     </div>
   );
 }
+
+const calling = [
+  {
+    name: "sojourner",
+    image: "https://upload.wikimedia.org/wikipedia/commons/3/3a/Sojourner_on_Mars_PIA01122.jpg"
+  },
+  {
+    name: "labor",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Modern_Times_poster.jpg/440px-Modern_Times_poster.jpg"
+  },
+  {
+    name: "guitar",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Guitar_1.jpg/600px-Guitar_1.jpg"
+  },
+  {
+    name: "running",
+    image: "https://cdn.pixabay.com/photo/2019/07/22/23/44/runner-4356298_960_720.jpg"
+  },
+  {
+    name: "programming",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/24/Wyvern-programming-languages-in-one.jpg"
+  }
+];
 
 const foodILike = [
   {
@@ -37,10 +65,9 @@ function App() {
     <div>
       <h1>Hello, React & Virtual DOM!</h1>
       <Traveler />
-      <Jobs calling="sojourner" />
-      <Jobs calling="traveler" />
-      <Jobs calling="writer" />
-      <Jobs calling="programmer" />
+      {calling.map(values => (
+        <Interest name={values.name} picture={values.image}/>
+      ))}
       {foodILike.map(dish => (
         <Food name={dish.name} picture={dish.image} />
       ))}
