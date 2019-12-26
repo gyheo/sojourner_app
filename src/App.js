@@ -60,6 +60,10 @@ const foodILike = [
   }
 ];
 
+function renderFood(dish){
+  console.log(dish)
+}
+
 function App() {
   return (
     <div>
@@ -68,9 +72,7 @@ function App() {
       {calling.map(values => (
         <Interest name={values.name} picture={values.image}/>
       ))}
-      {foodILike.map(dish => (
-        <Food name={dish.name} picture={dish.image} />
-      ))}
+      {foodILike.map(renderFood)}
     </div>
   );
 }
