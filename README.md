@@ -1,2 +1,2 @@
 # Sojourner App
-It is first react
+It is first react application
