@@ -2,10 +2,11 @@ import React from 'react';
 import Traveler from './traveler';
 import propTypes from 'prop-types';
 
-function Interest({ name, picture }) {
+function Interest({ name, picture, startAge }) {
   return (
     <div>
       <h1>I'm interested in {name}</h1>
+      <h2>{startAge}</h2>
       <img src={picture} alt={name}/>
     </div>
   );
@@ -27,31 +28,43 @@ Food.propTypes = {
   rating: propTypes.number.isRequired
 };
 
+// Comment
+Interest.propTypes = {
+  name: propTypes.string.isRequired,
+  picture: propTypes.string.isRequired,
+  startAge: propTypes.number
+};
+
 const calling = [
   {
     id: 1,
     name: "sojourner",
-    image: "https://upload.wikimedia.org/wikipedia/commons/3/3a/Sojourner_on_Mars_PIA01122.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/3/3a/Sojourner_on_Mars_PIA01122.jpg",
+    startAge: 0
   },
   {
     id: 2,
     name: "labor",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Modern_Times_poster.jpg/440px-Modern_Times_poster.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Modern_Times_poster.jpg/440px-Modern_Times_poster.jpg",
+    startAge: 21
   },
   {
     id: 3,
     name: "guitar",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Guitar_1.jpg/600px-Guitar_1.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Guitar_1.jpg/600px-Guitar_1.jpg",
+    startAge: 18
   },
   {
     id: 4,
     name: "running",
-    image: "https://cdn.pixabay.com/photo/2019/07/22/23/44/runner-4356298_960_720.jpg"
+    image: "https://cdn.pixabay.com/photo/2019/07/22/23/44/runner-4356298_960_720.jpg",
+    startAge: 25
   },
   {
     id: 5,
     name: "programming",
-    image: "https://upload.wikimedia.org/wikipedia/commons/2/24/Wyvern-programming-languages-in-one.jpg"
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/24/Wyvern-programming-languages-in-one.jpg",
+    startAge: 18
   }
 ];
 
@@ -85,7 +98,7 @@ function App() {
       <h1>Hello, React & Virtual DOM!</h1>
       <Traveler />
       {calling.map(values => (
-        <Interest key={values.id} name={values.name} picture={values.image}/>
+        <Interest key={values.id} name={values.name} picture={values.image} startAge={values.startAge}/>
       ))}
       {foodILike.map(dish => (
         <Food key={dish.id} name={dish.name} picture={dish.image} rating={dish.rating}/>
