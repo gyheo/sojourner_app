@@ -1,5 +1,6 @@
 import React from 'react';
 import Traveler from './traveler';
+import propTypes from 'prop-types';
 
 function Interest({ name, picture }) {
   return (
@@ -10,14 +11,21 @@ function Interest({ name, picture }) {
   );
 }
 
-function Food({ name, picture }) {
+function Food({ name, picture, rating }) {
   return (
     <div>
       <h1>I like {name}</h1>
-      <img src={picture} alt={name}/>
+      <h4>{rating}/5.0</h4>
+      <img src={picture} alt={name} />
     </div>
   );
 }
+
+Food.propTypes = {
+  name: propTypes.string.isRequired,
+  picture: propTypes.string.isRequired,
+  rating: propTypes.number.isRequired
+};
 
 const calling = [
   {
@@ -52,19 +60,22 @@ const foodILike = [
     id: 1,
     name: "Bibimbap",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Dolsot-bibimbap.jpg/800px-Dolsot-bibimbap.jpg"
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Dolsot-bibimbap.jpg/800px-Dolsot-bibimbap.jpg",
+    rating: 5.0
   },
   {
     id: 2,
     name: "Kimchi",
     image:
-    "https://upload.wikimedia.org/wikipedia/commons/f/f8/Various_kimchi.jpg"
+    "https://upload.wikimedia.org/wikipedia/commons/f/f8/Various_kimchi.jpg",
+    rating: 5.0
   },
   {
     id: 3,
     name: "Kimbap",
     image:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Vegetable_gimbap.jpg/440px-Vegetable_gimbap.jpg"
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Vegetable_gimbap.jpg/440px-Vegetable_gimbap.jpg",
+    rating: 4.5
   }
 ];
 
@@ -77,7 +88,7 @@ function App() {
         <Interest key={values.id} name={values.name} picture={values.image}/>
       ))}
       {foodILike.map(dish => (
-        <Food key={dish.id} name={dish.name} picture={dish.image}/>
+        <Food key={dish.id} name={dish.name} picture={dish.image} rating={dish.rating}/>
       ))}
     </div>
   );
