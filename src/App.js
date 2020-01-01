@@ -2,6 +2,8 @@ import React from 'react';
 import Traveler from './traveler';
 import propTypes from 'prop-types';
 
+/*
+// Function Component
 function Interest({ name, picture, startAge }) {
   return (
     <div>
@@ -105,6 +107,40 @@ function App() {
       ))}
     </div>
   );
+}
+*/
+
+// Class Component
+class App extends React.Component{
+  state = {
+    count: 0
+  };
+
+  add = () => {
+    console.log("add");
+  }
+
+  minus = () => {
+    console.log("minus");
+  }
+
+  multiply = () => {
+    console.log("multiply");
+  }
+
+  divide = () => {
+    console.log("divide");
+  }
+
+  render(){
+    return <div>
+    <h1>I'm a class {this.state.count}</h1>
+    <button onClick={this.add}>Add</button>
+    <button onClick={this.minus}>Minus</button>
+    <button onClick={this.multiply}>Multiply</button>
+    <button onClick={this.divide}>Divide</button>
+    </div>
+  }
 }
 
 export default App;
