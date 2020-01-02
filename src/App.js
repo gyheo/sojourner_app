@@ -127,11 +127,13 @@ class App extends React.Component{
   };
 
   multiply = () => {
-    console.log("multiply");
+    // console.log("multiply");
+    this.setState( current => ({ count: current.count * 2 }))
   };
 
   divide = () => {
-    console.log("divide");
+    // console.log("divide");
+    this.setState( current => ({ count: current.count / 2 }))
   };
 
   render(){
