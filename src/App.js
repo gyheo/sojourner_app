@@ -117,20 +117,22 @@ class App extends React.Component{
   };
 
   add = () => {
-    console.log("add");
-  }
-
+    // console.log("add");
+    this.setState( current => ({ count: current.count + 1}))
+  };
+  
   minus = () => {
-    console.log("minus");
-  }
+    // console.log("minus");
+    this.setState( current => ({ count: current.count - 1 }))
+  };
 
   multiply = () => {
     console.log("multiply");
-  }
+  };
 
   divide = () => {
     console.log("divide");
-  }
+  };
 
   render(){
     return <div>
