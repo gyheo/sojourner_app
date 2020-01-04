@@ -112,15 +112,7 @@ function App() {
 
 // Class Component
 class App extends React.Component{
-  constructor(props){
-    super(props);
-    console.log("Hello World");
-  }
-  
-  state = {
-    count: 0
-  };
-
+  /* 
   add = () => {
     // console.log("add");
     this.setState( current => ({ count: current.count + 1}))
@@ -152,15 +144,22 @@ class App extends React.Component{
   componentWillUnmount() {
     console.log("Goodbye component");
   }
+  */
+ state = {
+   isLoading: true,
+   movies: []
+  };
 
-  render(){
-    return <div>
-    <h1>I'm a class {this.state.count}</h1>
-    <button onClick={this.add}>Add</button>
-    <button onClick={this.minus}>Minus</button>
-    <button onClick={this.multiply}>Multiply</button>
-    <button onClick={this.divide}>Divide</button>
-    </div>
+  componentDidMount() {
+    // console.log("component rendered");
+    setTimeout(() => {
+      this.setState({ isLoading: false, book: true});
+    }, 3000);
+  }
+
+  render() {
+    const { isLoading } = this.state;
+    return <div>{isLoading ? "Loading..." : "We are ready"}</div>
   }
 }
 
