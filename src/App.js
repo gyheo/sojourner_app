@@ -112,6 +112,11 @@ function App() {
 
 // Class Component
 class App extends React.Component{
+  constructor(props){
+    super(props);
+    console.log("Hello World");
+  }
+  
   state = {
     count: 0
   };
@@ -135,6 +140,18 @@ class App extends React.Component{
     // console.log("divide");
     this.setState( current => ({ count: current.count / 2 }))
   };
+
+  componentDidMount() {
+    console.log("component rendered");
+  }
+
+  componentDidUpdate() {
+    console.log("I just updated");
+  }
+
+  componentWillUnmount() {
+    console.log("Goodbye component");
+  }
 
   render(){
     return <div>
